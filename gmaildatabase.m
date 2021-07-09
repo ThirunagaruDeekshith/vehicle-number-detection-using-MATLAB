@@ -1,0 +1,17 @@
+b='34bc3456';
+d="hello mr.";
+e=" your vehicle no "; 
+f=" punished with challan for breaking traffic rules better to pay thorugh tsstrc.com";
+T = readtable('data.xlsx','ReadRowNames',true);
+a=T(b,1);
+c=string(table2cell(T(b,2)));
+g=d+c+e+(string(b))+f;
+setpref('Internet','SMTP_Server','smtp.gmail.com');
+setpref('Internet','E_mail','thirunagarudeekshith@gmail.com');
+setpref('Internet','SMTP_Username','thirunagarudeekshith@gmail.com');
+setpref('Internet','SMTP_Password','6303858133');
+props = java.lang.System.getProperties;
+props.setProperty('mail.smtp.auth','true');
+props.setProperty('mail.smtp.socketFactory.class', 'javax.net.ssl.SSLSocketFactory');
+props.setProperty('mail.smtp.socketFactory.port','465');
+sendmail(string(table2cell(a)),"traffic challan",g);
